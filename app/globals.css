@@ -73,3 +73,39 @@ body[data-theme="light"] {
   50% { opacity: 0.5; }
   100% { transform: translateY(-20px) scaleY(1.5); opacity: 0; }
 }
+/* Light theme overrides for pages that currently use dark utility classes */
+body[data-theme="light"] .bg-\[\#030712\],
+body[data-theme="light"] .bg-\[\#02040a\] {
+  background-color: #f8fafc !important;
+}
+
+body[data-theme="light"] .bg-\[\#0B1120\],
+body[data-theme="light"] .bg-\[\#0B1120\]\/30,
+body[data-theme="light"] .bg-\[\#0B1120\]\/50,
+body[data-theme="light"] .bg-\[\#0B1120\]\/80,
+body[data-theme="light"] .bg-\[\#030712\]\/80 {
+  background-color: #ffffff !important;
+}
+
+body[data-theme="light"] .text-white,
+body[data-theme="light"] .text-gray-100,
+body[data-theme="light"] .text-gray-200 {
+  color: #0f172a !important;
+}
+
+body[data-theme="light"] .text-gray-300,
+body[data-theme="light"] .text-gray-400,
+body[data-theme="light"] .text-gray-500,
+body[data-theme="light"] .text-gray-600 {
+  color: #334155 !important;
+}
+
+body[data-theme="light"] .border-white\/5,
+body[data-theme="light"] .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+body[data-theme="light"] .bg-white\/5,
+body[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}

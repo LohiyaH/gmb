@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
 
 type Theme = "light" | "dark";
@@ -19,24 +13,17 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") return "light";
+
+  const stored = window.localStorage.getItem("theme");
+  if (stored === "light" || stored === "dark") return stored;
+
+  return "light";
+}
+
 function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
-
-  // Initialize theme from localStorage / system preference
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const stored = window.localStorage.getItem("theme") as Theme | null;
-    let initial: Theme = "dark";
-
-    if (stored === "light" || stored === "dark") {
-      initial = stored;
-    } else if (window.matchMedia?.("(prefers-color-scheme: light)").matches) {
-      initial = "light";
-    }
-
-    setThemeState(initial);
-  }, []);
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   // Apply theme to <html> / <body> and persist
   useEffect(() => {
