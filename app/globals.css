@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+/* Hide scrollbars globally but keep scrolling */
+html,
+body {
+  scrollbar-width: none;        /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;      /* Chrome, Safari, Edge */
+}
+
+* {
+  -ms-overflow-style: none;     /* IE and old Edge */
+}
+
+body[data-theme="dark"] {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 3, 7, 18;
+  --background-end-rgb: 3, 7, 18;
+  color: rgb(var(--foreground-rgb));
+  background-color: #030712;
+}
+
+body[data-theme="light"] {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+  color: rgb(var(--foreground-rgb));
+  background-color: #ffffff;
+}
+/* This targets devices with a screen width of 768px or less (Mobile & Tablets) */
+@media screen and (max-width: 768px) {
+    .terminal-dashboard {
+        display: none !important;
+    }
+}
+@keyframes fill-up {
+  0% { height: 0%; }
+  100% { height: 85%; }
+}
+
+@keyframes wave {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(0%) rotate(360deg); }
+}
+
+@keyframes bubble {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-120px) scale(1.5); opacity: 0; }
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scaleY(1); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-20px) scaleY(1.5); opacity: 0; }
+}
